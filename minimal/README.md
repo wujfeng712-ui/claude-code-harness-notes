@@ -39,19 +39,27 @@ python agent.py "Create hello.txt with a haiku about loops, then read it back"
 
 ## 进阶示例：加上权限 + 钩子
 
-`agent_with_hooks.py`（~180 行）在**完全相同的循环**上叠加了 [s03 权限](../notes/lessons/s03.md) 和 [s04 钩子](../notes/lessons/s04.md)，正是为了演示「挂在循环上，不写进循环里」：
+`agent_with_hooks.py`（~210 行）在**完全相同的循环**上叠加了 [s03 权限](../notes/lessons/s03.md) 和 [s04 钩子](../notes/lessons/s04.md)，正是为了演示「挂在循环上，不写进循环里」：
 
 ```sh
 python agent_with_hooks.py "统计 README 行数并写进 count.txt"
-AUTO_APPROVE=1 python agent_with_hooks.py "..."   # 跳过写文件确认
+AUTO_APPROVE=1   python agent_with_hooks.py "..."   # 跳过写文件确认
+FORCE_ONE_MORE=1 python agent_with_hooks.py "..."   # 演示 Stop 钩子强制再跑一轮
 ```
 
-它新增了：
-- `HOOKS` 注册表 + `trigger_pre/post`（s04 的 PreToolUse / PostToolUse 扩展点）
-- `permission_hook`：`DENY_LIST` 硬拒危险命令 + 写文件审批（s03 三道闸的精简版）
-- `log_hook`（调用前打印）、`big_output_hook`（大输出告警）
+它实现了 s04 **完整的 4 个钩子节点**：
 
-对比 `agent.py` 你会发现：**循环主体几乎一字未改**，唯一变化是工具执行那一步从「直接调用」变成「先过 PreToolUse → 调用 → 再过 PostToolUse」。这就是整个项目反复强调的扩展方式。
+| 节点 | 触发时机 | 示例回调 |
+|---|---|---|
+| ① `UserPromptSubmit` | 模型看到输入前 | `context_hook`：注入工作目录作为上下文 |
+| ② `PreToolUse` | 工具执行前 | `log_hook`（打印）+ `permission_hook`（s03 权限，可拦截） |
+| ③ `PostToolUse` | 工具执行后 | `big_output_hook`：大输出告警 |
+| ④ `Stop` | 循环将退出前 | `stop_hook`：可注入续写提示，强制再跑一轮 |
+
+- 同一节点可挂多个回调，按注册顺序执行（如 PreToolUse 上先日志、后权限）。
+- `permission_hook` 就是挂在 `PreToolUse` 上的一个回调：`DENY_LIST` 硬拒 + 写文件审批（s03 三道闸精简版）。
+
+对比 `agent.py` 你会发现：**循环主体几乎一字未改**——只是在「输入前 / 工具前后 / 退出前」这四个点插入了 `trigger_*` 调用。这就是整个项目反复强调的扩展方式：**挂在循环上，不写进循环里**。
 
 想看后面 16 个机制怎么继续往上叠？→ [课程总览](../README.md) · [心智模型](../notes/00-mental-model.md)
 

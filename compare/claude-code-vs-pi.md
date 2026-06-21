@@ -1,5 +1,8 @@
 # 三方横向对比：learn-claude-code × Claude Code × pi
 
+**[English](claude-code-vs-pi.en.md)** · 中文
+
+
 > 全网很少有人系统对比过这件事：**同一个 agent 循环，可以有两条相反的 harness 哲学。**
 
 对比对象：

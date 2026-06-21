@@ -1,5 +1,8 @@
 # 00 · 核心心智模型：Agent = Model + Harness
 
+**[English](00-mental-model.en.md)** · 中文
+
+
 > 读完本篇，你应该能用一句话向别人解释「一个 coding agent 是怎么工作的」。
 
 ## 一个公式

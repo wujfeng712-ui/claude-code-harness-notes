@@ -1,0 +1,21 @@
+<mxfile host="next-ai-draw-io" agent="claude-code-harness-notes">
+  <diagram id="teams" name="多Agent协作">
+    <mxGraphModel dx="900" dy="500" grid="1" gridSize="10" guides="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="840" pageHeight="300" math="0" shadow="0">
+      <root>
+        <mxCell id="0" /><mxCell id="1" parent="0" />
+        <mxCell id="lead" value="Lead Agent&#10;派活·汇总" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontColor=#1F3D66;" vertex="1" parent="1"><mxGeometry x="24" y="120" width="120" height="56" as="geometry" /></mxCell>
+        <mxCell id="bus" value="MessageBus · .mailboxes/*.jsonl" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF6E6;strokeColor=#D79B00;fontColor=#7F4F00;dashed=1;verticalAlign=top;" vertex="1" parent="1"><mxGeometry x="210" y="70" width="270" height="160" as="geometry" /></mxCell>
+        <mxCell id="send" value="发 = append 一行 JSON" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#D79B00;fontColor=#7F4F00;" vertex="1" parent="bus"><mxGeometry x="18" y="52" width="234" height="40" as="geometry" /></mxCell>
+        <mxCell id="recv" value="读 = read + unlink（消费式）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#D79B00;fontColor=#7F4F00;" vertex="1" parent="bus"><mxGeometry x="18" y="104" width="234" height="40" as="geometry" /></mxCell>
+        <mxCell id="t1" value="队友 1&#10;独立线程·精简工具集" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;fontColor=#2D5A2D;" vertex="1" parent="1"><mxGeometry x="546" y="78" width="160" height="54" as="geometry" /></mxCell>
+        <mxCell id="t2" value="队友 2&#10;独立线程" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;fontColor=#2D5A2D;" vertex="1" parent="1"><mxGeometry x="546" y="168" width="160" height="54" as="geometry" /></mxCell>
+        <mxCell id="board" value="任务板 .tasks/（自治认领）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#9673A6;fontColor=#553a66;" vertex="1" parent="1"><mxGeometry x="300" y="252" width="240" height="40" as="geometry" /></mxCell>
+        <mxCell id="g1" style="endArrow=block;startArrow=block;html=1;strokeColor=#6C8EBF;" edge="1" parent="1" source="lead" target="bus"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="g2" style="endArrow=block;startArrow=block;html=1;strokeColor=#6C8EBF;" edge="1" parent="1" source="bus" target="t1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="g3" style="endArrow=block;startArrow=block;html=1;strokeColor=#6C8EBF;" edge="1" parent="1" source="bus" target="t2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="g4" value="自治认领" style="endArrow=block;html=1;strokeColor=#9673A6;dashed=1;fontColor=#553a66;" edge="1" parent="1" source="t1" target="board"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="g5" style="endArrow=block;html=1;strokeColor=#9673A6;dashed=1;" edge="1" parent="1" source="t2" target="board"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

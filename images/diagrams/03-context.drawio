@@ -1,0 +1,18 @@
+<mxfile host="next-ai-draw-io" agent="claude-code-harness-notes">
+  <diagram id="context" name="上下文工程五层">
+    <mxGraphModel dx="900" dy="500" grid="1" gridSize="10" guides="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="960" pageHeight="140" math="0" shadow="0">
+      <root>
+        <mxCell id="0" /><mxCell id="1" parent="0" />
+        <mxCell id="x1" value="s06 隔离&#10;防污染" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontColor=#1F3D66;" vertex="1" parent="1"><mxGeometry x="14" y="40" width="156" height="56" as="geometry" /></mxCell>
+        <mxCell id="x2" value="s07 按需&#10;省空间" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;fontColor=#2D5A2D;" vertex="1" parent="1"><mxGeometry x="200" y="40" width="156" height="56" as="geometry" /></mxCell>
+        <mxCell id="x3" value="s08 压缩&#10;防溢出" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8CECC;strokeColor=#B85450;fontColor=#6B2B28;" vertex="1" parent="1"><mxGeometry x="386" y="40" width="156" height="56" as="geometry" /></mxCell>
+        <mxCell id="x4" value="s09 记忆&#10;补丢失" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#B0E3E6;strokeColor=#10739E;fontColor=#0b4a66;" vertex="1" parent="1"><mxGeometry x="572" y="40" width="156" height="56" as="geometry" /></mxCell>
+        <mxCell id="x5" value="s10 组装&#10;保动态" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#D79B00;fontColor=#7F4F00;" vertex="1" parent="1"><mxGeometry x="758" y="40" width="156" height="56" as="geometry" /></mxCell>
+        <mxCell id="b1" style="endArrow=block;html=1;strokeColor=#888888;" edge="1" parent="1" source="x1" target="x2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="b2" style="endArrow=block;html=1;strokeColor=#888888;" edge="1" parent="1" source="x2" target="x3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="b3" style="endArrow=block;html=1;strokeColor=#888888;" edge="1" parent="1" source="x3" target="x4"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="b4" style="endArrow=block;html=1;strokeColor=#888888;" edge="1" parent="1" source="x4" target="x5"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

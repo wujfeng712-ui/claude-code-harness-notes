@@ -1,0 +1,18 @@
+<mxfile host="next-ai-draw-io" agent="claude-code-harness-notes">
+  <diagram id="evolution" name="20课演进">
+    <mxGraphModel dx="900" dy="500" grid="1" gridSize="10" guides="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" /><mxCell id="1" parent="0" />
+        <mxCell id="c1" value="① 基础设施&#10;s01–s05&#10;安全·可扩展·有规划" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontColor=#1F3D66;" vertex="1" parent="1"><mxGeometry x="20" y="50" width="180" height="92" as="geometry" /></mxCell>
+        <mxCell id="c2" value="② 上下文工程&#10;s06–s10&#10;跑得久·记得住" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;fontColor=#2D5A2D;" vertex="1" parent="1"><mxGeometry x="234" y="50" width="180" height="92" as="geometry" /></mxCell>
+        <mxCell id="c3" value="③ 健壮性与编排&#10;s11–s14&#10;扛得住·排得开" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#D79B00;fontColor=#7F4F00;" vertex="1" parent="1"><mxGeometry x="448" y="50" width="180" height="92" as="geometry" /></mxCell>
+        <mxCell id="c4" value="④ 多 Agent 协作&#10;s15–s19&#10;通信·自治·隔离·外联" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#9673A6;fontColor=#553a66;" vertex="1" parent="1"><mxGeometry x="662" y="50" width="180" height="92" as="geometry" /></mxCell>
+        <mxCell id="c5" value="⑤ 集大成&#10;s20&#10;机制很多，循环一个" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8CECC;strokeColor=#B85450;fontColor=#6B2B28;" vertex="1" parent="1"><mxGeometry x="876" y="50" width="180" height="92" as="geometry" /></mxCell>
+        <mxCell id="a1" style="endArrow=block;html=1;strokeColor=#888888;" edge="1" parent="1" source="c1" target="c2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="a2" style="endArrow=block;html=1;strokeColor=#888888;" edge="1" parent="1" source="c2" target="c3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="a3" style="endArrow=block;html=1;strokeColor=#888888;" edge="1" parent="1" source="c3" target="c4"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="a4" style="endArrow=block;html=1;strokeColor=#888888;" edge="1" parent="1" source="c4" target="c5"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

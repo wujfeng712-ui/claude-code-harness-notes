@@ -1,0 +1,20 @@
+<mxfile host="next-ai-draw-io" agent="claude-code-harness-notes">
+  <diagram id="memory" name="记忆三环节">
+    <mxGraphModel dx="900" dy="500" grid="1" gridSize="10" guides="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="930" pageHeight="210" math="0" shadow="0">
+      <root>
+        <mxCell id="0" /><mxCell id="1" parent="0" />
+        <mxCell id="A" value="① Selection&#10;每轮开头·选≤5条注入" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontColor=#1F3D66;" vertex="1" parent="1"><mxGeometry x="14" y="40" width="150" height="52" as="geometry" /></mxCell>
+        <mxCell id="B" value="s08 压缩管线&#10;会丢细节" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#888888;fontColor=#444444;" vertex="1" parent="1"><mxGeometry x="210" y="40" width="124" height="52" as="geometry" /></mxCell>
+        <mxCell id="C" value="② Extraction&#10;压缩前快照上提取" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;fontColor=#2D5A2D;" vertex="1" parent="1"><mxGeometry x="380" y="40" width="154" height="52" as="geometry" /></mxCell>
+        <mxCell id="D" value="文件数 ≥ 10?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#D79B00;fontColor=#7F4F00;" vertex="1" parent="1"><mxGeometry x="580" y="31" width="120" height="70" as="geometry" /></mxCell>
+        <mxCell id="E" value="③ Consolidation&#10;LLM 去重合并" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#9673A6;fontColor=#553a66;" vertex="1" parent="1"><mxGeometry x="744" y="40" width="172" height="52" as="geometry" /></mxCell>
+        <mxCell id="F" value="结束" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#888888;fontColor=#444444;" vertex="1" parent="1"><mxGeometry x="585" y="150" width="110" height="40" as="geometry" /></mxCell>
+        <mxCell id="m1" style="endArrow=block;html=1;strokeColor=#888888;" edge="1" parent="1" source="A" target="B"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="m2" style="endArrow=block;html=1;strokeColor=#888888;" edge="1" parent="1" source="B" target="C"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="m3" style="endArrow=block;html=1;strokeColor=#888888;" edge="1" parent="1" source="C" target="D"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="m4" value="是" style="endArrow=block;html=1;strokeColor=#82B366;fontColor=#2D5A2D;" edge="1" parent="1" source="D" target="E"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="m5" value="否" style="endArrow=block;html=1;strokeColor=#888888;fontColor=#888888;" edge="1" parent="1" source="D" target="F"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

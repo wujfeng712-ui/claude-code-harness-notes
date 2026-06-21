@@ -1,0 +1,22 @@
+<mxfile host="next-ai-draw-io" agent="claude-code-harness-notes">
+  <diagram id="perm" name="权限三道闸">
+    <mxGraphModel dx="800" dy="500" grid="1" gridSize="10" page="1" pageWidth="600" pageHeight="350" math="0" shadow="0">
+      <root>
+        <mxCell id="0" /><mxCell id="1" parent="0" />
+        <mxCell id="blk" value="工具调用 block" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;" vertex="1" parent="1"><mxGeometry x="210" y="16" width="180" height="38" as="geometry" /></mxCell>
+        <mxCell id="g1" value="① DENY_LIST&#10;硬禁列表（rm -rf / sudo …）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCEAEA;strokeColor=#B85450;fontColor=#6B2B28;" vertex="1" parent="1"><mxGeometry x="170" y="84" width="260" height="48" as="geometry" /></mxCell>
+        <mxCell id="g2" value="② PERMISSION_RULES&#10;规则匹配" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF6E6;strokeColor=#D79B00;fontColor=#7F4F00;" vertex="1" parent="1"><mxGeometry x="170" y="178" width="260" height="48" as="geometry" /></mxCell>
+        <mxCell id="g3" value="③ ask_user()&#10;交互审批" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF0FB;strokeColor=#6C8EBF;fontColor=#1F3D66;" vertex="1" parent="1"><mxGeometry x="170" y="272" width="260" height="48" as="geometry" /></mxCell>
+        <mxCell id="d1" value="直接拒绝" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8CECC;strokeColor=#B85450;" vertex="1" parent="1"><mxGeometry x="470" y="90" width="110" height="36" as="geometry" /></mxCell>
+        <mxCell id="d2" value="直接放行" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;" vertex="1" parent="1"><mxGeometry x="470" y="184" width="110" height="36" as="geometry" /></mxCell>
+        <mxCell id="d3" value="放行 / 拒绝" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;" vertex="1" parent="1"><mxGeometry x="465" y="278" width="120" height="36" as="geometry" /></mxCell>
+        <mxCell id="p0" style="endArrow=block;html=1;strokeColor=#888888;" edge="1" parent="1" source="blk" target="g1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="p1" value="命中" style="endArrow=block;html=1;strokeColor=#B85450;fontColor=#6B2B28;" edge="1" parent="1" source="g1" target="d1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="p2" value="未命中" style="endArrow=block;html=1;strokeColor=#888888;" edge="1" parent="1" source="g1" target="g2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="p3" value="无规则" style="endArrow=block;html=1;strokeColor=#82B366;fontColor=#2D5A2D;" edge="1" parent="1" source="g2" target="d2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="p4" value="命中规则" style="endArrow=block;html=1;strokeColor=#888888;" edge="1" parent="1" source="g2" target="g3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="p5" value="y / N" style="endArrow=block;html=1;strokeColor=#888888;" edge="1" parent="1" source="g3" target="d3"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

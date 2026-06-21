@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <marker id="cp-a" markerWidth="9" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#888888"/></marker>
+  </defs>
+  <rect x="40" y="44" width="320" height="158" rx="9" fill="#F0F7F0" stroke="#82B366" stroke-width="1.6" stroke-dasharray="5 3"/>
+  <text x="200" y="62" text-anchor="middle" font-size="11" font-weight="bold" fill="#2D5A2D">每轮 LLM 调用前 · 0 次 API 调用</text>
+  <rect x="58" y="74" width="284" height="34" rx="6" fill="#DAE8FC" stroke="#6C8EBF" stroke-width="1.4"/>
+  <text x="200" y="96" text-anchor="middle" font-size="11" fill="#1F3D66">L3 tool_result_budget · 大结果落盘(&gt;30KB)</text>
+  <rect x="58" y="114" width="284" height="34" rx="6" fill="#DAE8FC" stroke="#6C8EBF" stroke-width="1.4"/>
+  <text x="200" y="136" text-anchor="middle" font-size="11" fill="#1F3D66">L1 snip_compact · 裁中段(头3+尾47)</text>
+  <rect x="58" y="154" width="284" height="34" rx="6" fill="#DAE8FC" stroke="#6C8EBF" stroke-width="1.4"/>
+  <text x="200" y="176" text-anchor="middle" font-size="11" fill="#1F3D66">L2 micro_compact · 旧结果换占位符</text>
+  <rect x="40" y="240" width="320" height="44" rx="7" fill="#FFE6CC" stroke="#D79B00" stroke-width="1.8"/>
+  <text x="200" y="259" text-anchor="middle" font-size="12" font-weight="bold" fill="#7F4F00">L4 compact_history · LLM 全量摘要</text>
+  <text x="200" y="275" text-anchor="middle" font-size="9.5" fill="#a8761f">1 次 API · 存档到 .transcripts/</text>
+  <rect x="40" y="318" width="320" height="44" rx="7" fill="#F8CECC" stroke="#B85450" stroke-width="1.8"/>
+  <text x="200" y="337" text-anchor="middle" font-size="12" font-weight="bold" fill="#6B2B28">reactive_compact · 激进裁剪重试</text>
+  <text x="200" y="353" text-anchor="middle" font-size="9.5" fill="#a04a45">应急（API 返回 413）</text>
+  <path d="M200,202 L200,236" stroke="#888888" stroke-width="1.6" marker-end="url(#cp-a)"/>
+  <path d="M200,284 L200,314" stroke="#888888" stroke-width="1.6" marker-end="url(#cp-a)"/>
+  <text x="208" y="224" font-size="10" fill="#7F4F00">仍 &gt; 阈值(50K token)?</text>
+  <text x="208" y="305" font-size="10" fill="#B85450">仍放不下 / 413?</text>
+  <rect x="430" y="74" width="150" height="114" rx="7" fill="#F0F7F0" stroke="#82B366" stroke-width="1.4"/>
+  <text x="505" y="120" text-anchor="middle" font-size="11" font-weight="bold" fill="#2D5A2D">便宜的先跑</text>
+  <text x="505" y="142" text-anchor="middle" font-size="11" font-weight="bold" fill="#7F4F00">贵的后跑</text>
+  <text x="14" y="24" font-size="12" fill="#999999">s08 · 上下文总会满 · 顺序关键：L3 必须在 L2 前（先落盘再占位）</text>
+</svg>

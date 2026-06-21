@@ -35,6 +35,10 @@ This keeps the agent always "aware of what capabilities exist" (low cost), while
 
 After continuous work, `messages` swells until it bursts the context. The core idea is **run the cheap ones first, the expensive ones last** — whatever can be solved with 0 API calls should never call the LLM:
 
+![07-compaction-pipeline](../images/diagrams/07-compaction-pipeline.svg)
+
+<details><summary>📄 ASCII version (terminal-friendly)</summary>
+
 ```
 Before each LLM call:
   L3 tool_result_budget  spill big results to disk (>30KB)   ─┐
@@ -47,6 +51,8 @@ Before each LLM call:
         ▼  API returns 413?
   reactive_compact        aggressive trim, retry once   ── emergency
 ```
+
+</details>
 
 > Order is critical: **L3 must come before L2** — otherwise a big result gets replaced by a placeholder before it's spilled to disk. `compact_history` saves the full conversation into `.transcripts/` so details can be recovered later; the summary must keep 5 kinds of information: current goal, important findings, files changed, remaining work, user constraints.
 

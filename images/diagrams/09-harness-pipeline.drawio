@@ -1,0 +1,25 @@
+<mxfile host="next-ai-draw-io" agent="claude-code-harness-notes">
+  <diagram id="harness" name="集大成管道">
+    <mxGraphModel dx="800" dy="500" grid="1" gridSize="10" page="1" pageWidth="600" pageHeight="470" math="0" shadow="0">
+      <root>
+        <mxCell id="0" /><mxCell id="1" parent="0" />
+        <mxCell id="s1" value="① UserPromptSubmit hooks" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#888888;" vertex="1" parent="1"><mxGeometry x="150" y="30" width="300" height="34" as="geometry" /></mxCell>
+        <mxCell id="s2" value="② 注入 cron prompt + 后台 task_notification" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EAF0FB;strokeColor=#6C8EBF;fontColor=#1F3D66;" vertex="1" parent="1"><mxGeometry x="150" y="76" width="300" height="34" as="geometry" /></mxCell>
+        <mxCell id="s3" value="③ 压缩管线 budget → snip → micro" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCEAEA;strokeColor=#B85450;fontColor=#6B2B28;" vertex="1" parent="1"><mxGeometry x="150" y="122" width="300" height="34" as="geometry" /></mxCell>
+        <mxCell id="s4" value="④ assemble_system_prompt（memory+skills+MCP）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF6E6;strokeColor=#D79B00;fontColor=#7F4F00;" vertex="1" parent="1"><mxGeometry x="150" y="168" width="300" height="34" as="geometry" /></mxCell>
+        <mxCell id="s5" value="⑤ LLM + error recovery（重试/升 token/压缩）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0F7F0;strokeColor=#82B366;fontColor=#2D5A2D;" vertex="1" parent="1"><mxGeometry x="150" y="214" width="300" height="34" as="geometry" /></mxCell>
+        <mxCell id="dd" value="has_tool_use?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#D79B00;fontColor=#7F4F00;" vertex="1" parent="1"><mxGeometry x="212" y="266" width="176" height="68" as="geometry" /></mxCell>
+        <mxCell id="yes" value="是 → PreToolUse(权限) → 执行工具 → PostToolUse → 回填&#10;（可走后台线程）然后进入下一轮" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;fontColor=#2D5A2D;" vertex="1" parent="1"><mxGeometry x="60" y="372" width="420" height="42" as="geometry" /></mxCell>
+        <mxCell id="no" value="否 → Stop hooks · 返回" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8CECC;strokeColor=#B85450;fontColor=#6B2B28;" vertex="1" parent="1"><mxGeometry x="470" y="278" width="118" height="44" as="geometry" /></mxCell>
+        <mxCell id="h1" style="endArrow=block;html=1;strokeColor=#888888;" edge="1" parent="1" source="s1" target="s2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="h2" style="endArrow=block;html=1;strokeColor=#888888;" edge="1" parent="1" source="s2" target="s3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="h3" style="endArrow=block;html=1;strokeColor=#888888;" edge="1" parent="1" source="s3" target="s4"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="h4" style="endArrow=block;html=1;strokeColor=#888888;" edge="1" parent="1" source="s4" target="s5"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="h5" style="endArrow=block;html=1;strokeColor=#888888;" edge="1" parent="1" source="s5" target="dd"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="h6" value="是" style="endArrow=block;html=1;strokeColor=#82B366;fontColor=#2D5A2D;" edge="1" parent="1" source="dd" target="yes"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="h7" value="否" style="endArrow=block;html=1;strokeColor=#B85450;fontColor=#6B2B28;" edge="1" parent="1" source="dd" target="no"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="h8" value="下一轮 loop" style="endArrow=block;html=1;strokeColor=#6C8EBF;fontColor=#1F3D66;exitX=0;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="yes" target="s3"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="30" y="393" /><mxPoint x="30" y="139" /></Array></mxGeometry></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

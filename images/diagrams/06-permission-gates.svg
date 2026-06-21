@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 350" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <marker id="pg-g" markerWidth="9" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#888888"/></marker>
+    <marker id="pg-r" markerWidth="9" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#B85450"/></marker>
+    <marker id="pg-gr" markerWidth="9" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#82B366"/></marker>
+  </defs>
+  <rect x="210" y="16" width="180" height="38" rx="7" fill="#F5F5F5" stroke="#666666" stroke-width="1.6"/>
+  <text x="300" y="40" text-anchor="middle" font-size="12.5" fill="#333333">工具调用 block</text>
+  <rect x="170" y="84" width="260" height="48" rx="7" fill="#FCEAEA" stroke="#B85450" stroke-width="1.8"/>
+  <text x="300" y="106" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#6B2B28">① DENY_LIST</text>
+  <text x="300" y="123" text-anchor="middle" font-size="9.5" fill="#a04a45">硬禁列表（rm -rf / sudo …）</text>
+  <rect x="170" y="178" width="260" height="48" rx="7" fill="#FFF6E6" stroke="#D79B00" stroke-width="1.8"/>
+  <text x="300" y="200" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#7F4F00">② PERMISSION_RULES</text>
+  <text x="300" y="217" text-anchor="middle" font-size="9.5" fill="#a8761f">规则匹配</text>
+  <rect x="170" y="272" width="260" height="48" rx="7" fill="#EAF0FB" stroke="#6C8EBF" stroke-width="1.8"/>
+  <text x="300" y="294" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#1F3D66">③ ask_user()</text>
+  <text x="300" y="311" text-anchor="middle" font-size="9.5" fill="#5a7aa3">交互审批</text>
+  <rect x="470" y="90" width="110" height="36" rx="7" fill="#F8CECC" stroke="#B85450" stroke-width="1.6"/>
+  <text x="525" y="113" text-anchor="middle" font-size="12" fill="#6B2B28">直接拒绝</text>
+  <rect x="470" y="184" width="110" height="36" rx="7" fill="#D5E8D4" stroke="#82B366" stroke-width="1.6"/>
+  <text x="525" y="207" text-anchor="middle" font-size="12" fill="#2D5A2D">直接放行</text>
+  <rect x="465" y="278" width="120" height="36" rx="7" fill="#F5F5F5" stroke="#666666" stroke-width="1.6"/>
+  <text x="525" y="301" text-anchor="middle" font-size="12" fill="#333333">放行 / 拒绝</text>
+  <path d="M300,54 L300,80" stroke="#888888" stroke-width="1.6" marker-end="url(#pg-g)"/>
+  <path d="M430,108 L466,108" stroke="#B85450" stroke-width="1.6" marker-end="url(#pg-r)"/>
+  <path d="M300,132 L300,174" stroke="#888888" stroke-width="1.6" marker-end="url(#pg-g)"/>
+  <path d="M430,202 L466,202" stroke="#82B366" stroke-width="1.6" marker-end="url(#pg-gr)"/>
+  <path d="M300,226 L300,268" stroke="#888888" stroke-width="1.6" marker-end="url(#pg-g)"/>
+  <path d="M430,296 L461,296" stroke="#888888" stroke-width="1.6" marker-end="url(#pg-g)"/>
+  <text x="447" y="100" text-anchor="middle" font-size="9.5" fill="#a04a45">命中</text>
+  <text x="312" y="156" font-size="9.5" fill="#888888">未命中</text>
+  <text x="447" y="194" text-anchor="middle" font-size="9.5" fill="#5a8a5a">无规则</text>
+  <text x="312" y="250" font-size="9.5" fill="#888888">命中规则</text>
+  <text x="445" y="288" text-anchor="middle" font-size="9.5" fill="#888888">y / N</text>
+  <text x="170" y="345" font-size="11.5" fill="#999999">s03 · 信任代码，不信任模型 · 执行前三道闸</text>
+</svg>

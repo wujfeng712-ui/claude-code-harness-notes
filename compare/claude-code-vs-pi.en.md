@@ -40,6 +40,10 @@ What we're comparing (two **production-grade** frameworks):
 
 This is the single most important diagram — **same loop, two opposite routes**:
 
+![10-builtin-vs-extension](../images/diagrams/10-builtin-vs-extension.svg)
+
+<details><summary>📄 ASCII version (terminal-friendly)</summary>
+
 ```
                          Claude Code                        pi
                     ─────────────────────       ─────────────────────
@@ -62,6 +66,8 @@ This is the single most important diagram — **same loop, two opposite routes**
         └────────────────────────┘        └────────────────────────┘
             "batteries included"               "bring your own batteries"
 ```
+
+</details>
 
 ---
 

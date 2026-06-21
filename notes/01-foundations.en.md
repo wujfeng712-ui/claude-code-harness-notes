@@ -30,6 +30,10 @@ The only change is on the tool-execution line: from a hardcoded `run_bash(...)` 
 
 You can't rely on "trusting the model"; you must enforce checks in code. Chain three gates before tool execution:
 
+![06-permission-gates](../images/diagrams/06-permission-gates.svg)
+
+<details><summary>📄 ASCII version (terminal-friendly)</summary>
+
 ```
 tool-call block
       │
@@ -49,6 +53,8 @@ tool-call block
 │ ③ ask_user()  │ ───────► │ allow / reject│
 └───────────────┘          └──────────────┘
 ```
+
+</details>
 
 > **Motto: Trust the code, not the model.**
 

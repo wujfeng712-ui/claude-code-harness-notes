@@ -27,6 +27,10 @@ In a distributed system, truncation, limit-exceeded, and transient failures are 
 
 Each task is a JSON record (`id / subject / status / owner / blockedBy`). `can_start()` checks whether all upstreams in `blockedBy` are complete before allowing a claim; on completion it scans and reports the unblocked downstreams.
 
+![08-task-dag](../images/diagrams/08-task-dag.svg)
+
+<details><summary>📄 ASCII version (terminal-friendly)</summary>
+
 ```
         ┌──────────┐
         │ task_A   │ completed
@@ -43,6 +47,8 @@ Each task is a JSON record (`id / subject / status / owner / blockedBy`). `can_s
   │ task_D  │ blocked (upstream B incomplete → can_start ✗)
   └─────────┘
 ```
+
+</details>
 
 File persistence naturally supports cross-session recovery, and the `owner` field prevents duplicate claims in multi-agent scenarios — **this is the cornerstone of the later multi-Agent collaboration**.
 

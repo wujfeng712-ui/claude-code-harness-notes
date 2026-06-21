@@ -36,6 +36,10 @@
 
 连续工作后 `messages` 会膨胀到撑爆上下文。核心思想是**便宜的先跑、贵的后跑**，能用 0 次 API 解决的绝不调 LLM：
 
+![07-compaction-pipeline](../images/diagrams/07-compaction-pipeline.svg)
+
+<details><summary>📄 ASCII 版（终端可读）</summary>
+
 ```
 每轮 LLM 调用前：
   L3 tool_result_budget  大结果落盘(>30KB)   ─┐
@@ -48,6 +52,8 @@
         ▼  API 返回 413?
   reactive_compact        激进裁剪重试一次       ── 应急
 ```
+
+</details>
 
 > 顺序关键：**L3 必须在 L2 前**——否则大结果还没存盘就被占位符替换了。`compact_history` 会把完整对话存进 `.transcripts/` 以便事后恢复细节，摘要要保留 5 类信息：当前目标、重要发现、已改文件、剩余工作、用户约束。
 

@@ -31,6 +31,10 @@
 
 不能靠「信任模型」，必须在代码层做强制检查。工具执行前串联三道闸：
 
+![06-permission-gates](../images/diagrams/06-permission-gates.svg)
+
+<details><summary>📄 ASCII 版（终端可读）</summary>
+
 ```
 工具调用 block
       │
@@ -50,6 +54,8 @@
 │ ③ ask_user()  │ ───────► │ 放行 / 拒绝   │
 └───────────────┘          └──────────────┘
 ```
+
+</details>
 
 > **Motto：信任代码，不信任模型。**
 

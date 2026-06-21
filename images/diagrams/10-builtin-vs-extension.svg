@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 320" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <marker id="bx-a" markerWidth="9" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#82B366"/></marker>
+  </defs>
+  <text x="190" y="36" text-anchor="middle" font-size="14" font-weight="bold" fill="#1F3D66">Claude Code</text>
+  <text x="190" y="54" text-anchor="middle" font-size="10.5" fill="#888888">内建分层 · 开箱即全</text>
+  <text x="560" y="36" text-anchor="middle" font-size="14" font-weight="bold" fill="#2D5A2D">pi</text>
+  <text x="560" y="54" text-anchor="middle" font-size="10.5" fill="#888888">极简内核 + 扩展优先</text>
+  <line x1="375" y1="20" x2="375" y2="300" stroke="#dddddd" stroke-width="1" stroke-dasharray="4 4"/>
+  <!-- Claude Code: thick harness -->
+  <rect x="50" y="70" width="280" height="190" rx="9" fill="#DAE8FC" stroke="#6C8EBF" stroke-width="1.8"/>
+  <text x="190" y="96" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#1F3D66">厚 harness（全部内建）</text>
+  <g font-size="11" fill="#1F3D66">
+    <rect x="70" y="112" width="115" height="30" rx="5" fill="#EAF0FB" stroke="#6C8EBF" stroke-width="1.2"/><text x="127" y="131" text-anchor="middle">权限 · 钩子</text>
+    <rect x="195" y="112" width="115" height="30" rx="5" fill="#EAF0FB" stroke="#6C8EBF" stroke-width="1.2"/><text x="252" y="131" text-anchor="middle">记忆 · 压缩</text>
+    <rect x="70" y="150" width="115" height="30" rx="5" fill="#EAF0FB" stroke="#6C8EBF" stroke-width="1.2"/><text x="127" y="169" text-anchor="middle">子 Agent</text>
+    <rect x="195" y="150" width="115" height="30" rx="5" fill="#EAF0FB" stroke="#6C8EBF" stroke-width="1.2"/><text x="252" y="169" text-anchor="middle">MCP · 团队</text>
+    <rect x="70" y="188" width="115" height="30" rx="5" fill="#EAF0FB" stroke="#6C8EBF" stroke-width="1.2"/><text x="127" y="207" text-anchor="middle">Cron</text>
+    <rect x="195" y="188" width="115" height="30" rx="5" fill="#EAF0FB" stroke="#6C8EBF" stroke-width="1.2"/><text x="252" y="207" text-anchor="middle">Worktree</text>
+  </g>
+  <text x="190" y="244" text-anchor="middle" font-size="12" font-weight="bold" fill="#6C8EBF">🔋 电池全含</text>
+  <!-- pi: thin core + extensions -->
+  <rect x="430" y="78" width="260" height="48" rx="8" fill="#D5E8D4" stroke="#82B366" stroke-width="1.8"/>
+  <text x="560" y="100" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#2D5A2D">薄内核 agent-core</text>
+  <text x="560" y="116" text-anchor="middle" font-size="9.5" fill="#5a8a5a">循环 · 工具 · 钩子</text>
+  <g font-size="10.5">
+    <rect x="430" y="170" width="80" height="56" rx="6" fill="#F0F7F0" stroke="#82B366" stroke-width="1.3"/><text x="470" y="195" text-anchor="middle" fill="#2D5A2D">TS 扩展</text><text x="470" y="211" text-anchor="middle" font-size="8.5" fill="#5a8a5a">权限/子Agent</text>
+    <rect x="520" y="170" width="80" height="56" rx="6" fill="#F0F7F0" stroke="#82B366" stroke-width="1.3"/><text x="560" y="195" text-anchor="middle" fill="#2D5A2D">Skills</text><text x="560" y="211" text-anchor="middle" font-size="8.5" fill="#5a8a5a">/MCP 自建</text>
+    <rect x="610" y="170" width="80" height="56" rx="6" fill="#F0F7F0" stroke="#82B366" stroke-width="1.3"/><text x="650" y="195" text-anchor="middle" fill="#2D5A2D">容器隔离</text><text x="650" y="211" text-anchor="middle" font-size="8.5" fill="#5a8a5a">权限外置</text>
+  </g>
+  <path d="M490,126 L470,166" stroke="#82B366" stroke-width="1.4" marker-end="url(#bx-a)"/>
+  <path d="M560,126 L560,166" stroke="#82B366" stroke-width="1.4" marker-end="url(#bx-a)"/>
+  <path d="M630,126 L650,166" stroke="#82B366" stroke-width="1.4" marker-end="url(#bx-a)"/>
+  <text x="560" y="252" text-anchor="middle" font-size="12" font-weight="bold" fill="#82B366">🔧 自己装电池</text>
+  <text x="14" y="16" font-size="11.5" fill="#999999">同一个循环，两条相反的 harness 哲学</text>
+</svg>

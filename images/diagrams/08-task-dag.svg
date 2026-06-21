@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 310" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <marker id="dg-a" markerWidth="9" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#82B366"/></marker>
+    <marker id="dg-b" markerWidth="9" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#888888"/></marker>
+  </defs>
+  <rect x="170" y="40" width="150" height="46" rx="7" fill="#D5E8D4" stroke="#82B366" stroke-width="1.6"/>
+  <text x="245" y="60" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#2D5A2D">task_A</text>
+  <text x="245" y="76" text-anchor="middle" font-size="9.5" fill="#5a8a5a">completed</text>
+  <rect x="70" y="150" width="150" height="46" rx="7" fill="#DAE8FC" stroke="#6C8EBF" stroke-width="1.6"/>
+  <text x="145" y="170" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#1F3D66">task_B</text>
+  <text x="145" y="186" text-anchor="middle" font-size="9" fill="#5a7aa3">pending · can_start ✓</text>
+  <rect x="270" y="150" width="150" height="46" rx="7" fill="#DAE8FC" stroke="#6C8EBF" stroke-width="1.6"/>
+  <text x="345" y="170" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#1F3D66">task_C</text>
+  <text x="345" y="186" text-anchor="middle" font-size="9" fill="#5a7aa3">pending · can_start ✓</text>
+  <rect x="70" y="250" width="150" height="46" rx="7" fill="#F5F5F5" stroke="#999999" stroke-width="1.6"/>
+  <text x="145" y="270" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#666666">task_D</text>
+  <text x="145" y="286" text-anchor="middle" font-size="9" fill="#999999">blocked · can_start ✗</text>
+  <path d="M210,86 L160,146" stroke="#82B366" stroke-width="1.6" marker-end="url(#dg-a)"/>
+  <path d="M280,86 L330,146" stroke="#82B366" stroke-width="1.6" marker-end="url(#dg-a)"/>
+  <path d="M145,196 L145,246" stroke="#888888" stroke-width="1.6" marker-end="url(#dg-b)"/>
+  <text x="150" y="120" font-size="9.5" fill="#5a8a5a">unblocks</text>
+  <text x="300" y="120" font-size="9.5" fill="#5a8a5a">unblocks</text>
+  <text x="152" y="226" font-size="9.5" fill="#888888">blockedBy:[B]</text>
+  <text x="14" y="24" font-size="12" fill="#999999">s12 · 拆成小任务，排好序，持久化 · 文件化 DAG（.tasks/）</text>
+</svg>

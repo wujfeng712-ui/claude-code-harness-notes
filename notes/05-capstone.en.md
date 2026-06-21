@@ -6,6 +6,10 @@
 
 ## The complete harness pipeline
 
+![09-harness-pipeline](../images/diagrams/09-harness-pipeline.svg)
+
+<details><summary>📄 ASCII version (terminal-friendly)</summary>
+
 ```
 user input ─► UserPromptSubmit hooks
         ─► inject cron-triggered prompts + background-completed task_notification
@@ -17,6 +21,8 @@ user input ─► UserPromptSubmit hooks
              │        ─► dispatch ─► background thread or inline ─► PostToolUse hooks ─► feed back ─► next round
              └─ no  ─► Stop hooks ─► return
 ```
+
+</details>
 
 Note: at the innermost layer it's still that 30-line loop (`call LLM → has tool_use? → execute → append → repeat`), with all the mechanisms of the previous 19 chapters "hung" around it.
 

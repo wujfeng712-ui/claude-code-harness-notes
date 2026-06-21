@@ -40,6 +40,10 @@
 
 这是最关键的一张图——**同一个循环，两条相反的路线**：
 
+![10-builtin-vs-extension](../images/diagrams/10-builtin-vs-extension.svg)
+
+<details><summary>📄 ASCII 版（终端可读）</summary>
+
 ```
                          Claude Code                        pi
                     ─────────────────────       ─────────────────────
@@ -59,6 +63,8 @@
         └────────────────────────┘        └────────────────────────┘
             "电池全含"                          "自己装电池"
 ```
+
+</details>
 
 ---
 

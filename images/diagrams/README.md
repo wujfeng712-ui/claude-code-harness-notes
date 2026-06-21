@@ -29,3 +29,10 @@
 | `03-context` | 上下文工程五层 |
 | `04-memory` | 记忆三环节 |
 | `05-teams` | 多 Agent 协作（MessageBus） |
+| `06-permission-gates` | s03 权限三道闸 |
+| `07-compaction-pipeline` | s08 上下文压缩四层管线 |
+| `08-task-dag` | s12 文件化任务依赖图 |
+| `09-harness-pipeline` | s20 集大成 harness 管道 |
+| `10-builtin-vs-extension` | 对比：Claude Code 内建 vs pi 扩展 |
+
+> `06`–`10` 是把正文里的关键 ASCII 图升级成的 draw.io 版；文档中图在上、原 ASCII 收在 `<details>` 里（保留终端纯文本可读性）。

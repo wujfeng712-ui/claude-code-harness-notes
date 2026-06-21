@@ -28,6 +28,10 @@
 
 每个任务是一条 JSON 记录（`id / subject / status / owner / blockedBy`）。`can_start()` 检查 `blockedBy` 里的上游是否全部完成才允许认领；完成后扫描并报告被解锁的下游。
 
+![08-task-dag](../images/diagrams/08-task-dag.svg)
+
+<details><summary>📄 ASCII 版（终端可读）</summary>
+
 ```
         ┌──────────┐
         │ task_A   │ completed
@@ -44,6 +48,8 @@
   │ task_D  │ blocked（上游 B 未完成 → can_start ✗）
   └─────────┘
 ```
+
+</details>
 
 文件持久化天然支持跨会话恢复，`owner` 字段在多 agent 场景防止重复认领——**这是后面多 Agent 协作的基石**。
 

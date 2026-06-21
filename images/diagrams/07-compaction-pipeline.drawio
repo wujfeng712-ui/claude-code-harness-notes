@@ -1,0 +1,17 @@
+<mxfile host="next-ai-draw-io" agent="claude-code-harness-notes">
+  <diagram id="compact" name="压缩四层管线">
+    <mxGraphModel dx="800" dy="500" grid="1" gridSize="10" page="1" pageWidth="600" pageHeight="380" math="0" shadow="0">
+      <root>
+        <mxCell id="0" /><mxCell id="1" parent="0" />
+        <mxCell id="grp" value="每轮 LLM 调用前 · 0 次 API 调用" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0F7F0;strokeColor=#82B366;dashed=1;verticalAlign=top;fontColor=#2D5A2D;" vertex="1" parent="1"><mxGeometry x="40" y="44" width="320" height="158" as="geometry" /></mxCell>
+        <mxCell id="l3" value="L3 tool_result_budget · 大结果落盘(&gt;30KB)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontColor=#1F3D66;" vertex="1" parent="grp"><mxGeometry x="18" y="30" width="284" height="34" as="geometry" /></mxCell>
+        <mxCell id="l1" value="L1 snip_compact · 裁中段(头3+尾47)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontColor=#1F3D66;" vertex="1" parent="grp"><mxGeometry x="18" y="70" width="284" height="34" as="geometry" /></mxCell>
+        <mxCell id="l2" value="L2 micro_compact · 旧结果换占位符" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontColor=#1F3D66;" vertex="1" parent="grp"><mxGeometry x="18" y="110" width="284" height="34" as="geometry" /></mxCell>
+        <mxCell id="l4" value="L4 compact_history · LLM 全量摘要&#10;1 次 API · 存档到 .transcripts/" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#D79B00;fontColor=#7F4F00;" vertex="1" parent="1"><mxGeometry x="40" y="240" width="320" height="44" as="geometry" /></mxCell>
+        <mxCell id="rc" value="reactive_compact · 激进裁剪重试&#10;应急（API 返回 413）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8CECC;strokeColor=#B85450;fontColor=#6B2B28;" vertex="1" parent="1"><mxGeometry x="40" y="318" width="320" height="44" as="geometry" /></mxCell>
+        <mxCell id="cc1" value="仍 &gt; 阈值(50K token)?" style="endArrow=block;html=1;strokeColor=#888888;fontColor=#7F4F00;" edge="1" parent="1" source="grp" target="l4"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="cc2" value="仍放不下 / 413?" style="endArrow=block;html=1;strokeColor=#888888;fontColor=#B85450;" edge="1" parent="1" source="l4" target="rc"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

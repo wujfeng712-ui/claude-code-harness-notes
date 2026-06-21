@@ -1,0 +1,8 @@
+flowchart LR
+    U([用户输入]) --> M{{模型决策}}
+    M -->|stop_reason = tool_use| T[执行工具]
+    T --> R[结果回填 messages]
+    R --> M
+    M -->|stop_reason = end| O([输出给用户])
+    style M fill:#ffe8cc,stroke:#d9480f
+    style T fill:#d3f9d8,stroke:#2b8a3e

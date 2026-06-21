@@ -1,0 +1,6 @@
+flowchart LR
+    A[每轮开头<br/>Selection<br/>LLM选≤5条相关记忆注入] --> B[s08 压缩管线]
+    B --> C[每轮结束<br/>Extraction<br/>在压缩前快照上提取新记忆]
+    C --> D{文件 ≥ 10?}
+    D -->|是| E[Consolidation<br/>LLM 去重合并]
+    D -->|否| F[结束]

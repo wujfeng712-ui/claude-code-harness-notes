@@ -1,0 +1,17 @@
+flowchart TB
+    subgraph A["第一篇 · 核心循环与基础设施"]
+        s01[s01 Agent Loop] --> s02[s02 工具分发] --> s03[s03 权限] --> s04[s04 Hooks] --> s05[s05 TodoWrite]
+    end
+    subgraph B["第二篇 · 上下文工程"]
+        s06[s06 子Agent隔离] --> s07[s07 Skill按需] --> s08[s08 上下文压缩] --> s09[s09 记忆] --> s10[s10 Prompt组装]
+    end
+    subgraph C["第三篇 · 健壮性与编排"]
+        s11[s11 错误恢复] --> s12[s12 任务图] --> s13[s13 后台任务] --> s14[s14 Cron调度]
+    end
+    subgraph D["第四篇 · 多Agent协作"]
+        s15[s15 团队] --> s16[s16 协议] --> s17[s17 自治] --> s18[s18 Worktree隔离] --> s19[s19 MCP]
+    end
+    subgraph E["第五篇 · 集大成"]
+        s20[s20 全机制 · 一个循环]
+    end
+    A --> B --> C --> D --> E

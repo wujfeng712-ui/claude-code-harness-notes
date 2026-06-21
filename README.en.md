@@ -2,6 +2,8 @@
 
 **[中文](README.md)** · English
 
+[![Check Markdown links](https://github.com/wujfeng712-ui/claude-code-harness-notes/actions/workflows/check-links.yml/badge.svg)](https://github.com/wujfeng712-ui/claude-code-harness-notes/actions/workflows/check-links.yml)
+
 > **An agent's power comes not from a smarter model loop, but from the ever-maturing harness layered around that loop.**
 
 These are my study notes after a close reading of the teaching project [`shareAI-lab/learn-claude-code`](https://github.com/shareAI-lab/learn-claude-code). They are not a copy of the source code — they answer three questions:

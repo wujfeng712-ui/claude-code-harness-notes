@@ -1,0 +1,47 @@
+name: Check Markdown links
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "**/*.md"
+      - "scripts/check_links.py"
+      - ".github/workflows/check-links.yml"
+  pull_request:
+    paths:
+      - "**/*.md"
+      - "scripts/check_links.py"
+      - ".github/workflows/check-links.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  local-links:
+    name: Local & image links (blocking)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Validate relative links and image references
+        run: python scripts/check_links.py
+
+  external-links:
+    name: External links (non-blocking)
+    runs-on: ubuntu-latest
+    continue-on-error: true   # 外链可能因限流/改名误报，不阻断合并 / network flakiness shouldn't block
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check http(s) links with lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          # 只查外链是否可达（本地链接已由 local-links 阻断式校验）。
+          # 不校验 #Lxxx 行锚点（GitHub blob 页由 JS 渲染，HEAD 查不到，易误报）。
+          args: >-
+            --no-progress
+            --scheme https --scheme http
+            './**/*.md'
+          fail: false

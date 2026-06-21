@@ -44,7 +44,7 @@ After reading, you should be able to explain from scratch: *why `Agent = Model +
 | [notes/03-robustness.en.md](notes/03-robustness.en.md) | s11–s14 robustness & orchestration | Survive, queue, don't block, run on schedule |
 | [notes/04-multi-agent.en.md](notes/04-multi-agent.en.md) | s15–s19 multi-agent | Communicate → agree → self-organize → isolate → extend |
 | [notes/05-capstone.en.md](notes/05-capstone.en.md) | s20 capstone | Many mechanisms, one loop |
-| [compare/claude-code-vs-pi.en.md](compare/claude-code-vs-pi.en.md) | Three-way comparison | One loop, two opposite harness philosophies |
+| [compare/claude-code-vs-pi.en.md](compare/claude-code-vs-pi.en.md) | Claude Code × pi | One loop, two opposite harness philosophies |
 | [cheatsheets/decision-table.en.md](cheatsheets/decision-table.en.md) | Decision table | Which mechanism to add when building your own agent |
 | [notes/lessons/en/](notes/lessons/en/) | **20 per-lesson pages** | One page per lesson, easy to browse/bookmark |
 | [minimal/](minimal/) | **Runnable minimal agent** | ~120 lines, clone and run |

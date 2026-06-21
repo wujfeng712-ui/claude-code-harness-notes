@@ -41,7 +41,7 @@
 | [notes/03-robustness.md](notes/03-robustness.md) | s11–s14 健壮性与编排 | 扛得住、排得开、不阻塞、自动跑 |
 | [notes/04-multi-agent.md](notes/04-multi-agent.md) | s15–s19 多 Agent 协作 | 通信→约定→自治→隔离→外联 |
 | [notes/05-capstone.md](notes/05-capstone.md) | s20 集大成 | 机制很多，循环一个 |
-| [compare/claude-code-vs-pi.md](compare/claude-code-vs-pi.md) | 三方横向对比 | 同一个循环，两条相反的 harness 哲学 |
+| [compare/claude-code-vs-pi.md](compare/claude-code-vs-pi.md) | Claude Code × pi 对比 | 同一个循环，两条相反的 harness 哲学 |
 | [cheatsheets/decision-table.md](cheatsheets/decision-table.md) | 选型决策表 | 做自己的 agent 时该上哪个机制 |
 | [notes/lessons/](notes/lessons/) | **20 课逐课独立页** | 每课一页，便于浏览/收藏（中英双语） |
 | [minimal/](minimal/) | **最小可跑 agent** | ~120 行，clone 下来就能跑 |

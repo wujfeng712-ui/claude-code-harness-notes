@@ -1,5 +1,7 @@
 # Claude Code Harness Notes · 一份读懂 Agent Harness 的学习笔记
 
+中文 · **[English](README.en.md)**
+
 > **Agent 的强大不来自更聪明的模型循环，而来自循环周围那层不断成熟的 harness。**
 
 这是我精读教学项目 [`shareAI-lab/learn-claude-code`](https://github.com/shareAI-lab/learn-claude-code) 后沉淀的学习笔记。它不是源码搬运，而是回答三个问题：

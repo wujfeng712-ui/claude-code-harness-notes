@@ -1,0 +1,119 @@
+# Claude Code Harness Notes · Study notes for understanding Agent Harness
+
+**[中文](README.md)** · English
+
+> **An agent's power comes not from a smarter model loop, but from the ever-maturing harness layered around that loop.**
+
+These are my study notes after a close reading of the teaching project [`shareAI-lab/learn-claude-code`](https://github.com/shareAI-lab/learn-claude-code). They are not a copy of the source code — they answer three questions:
+
+1. **How is a coding agent's harness actually built?** — Explained through one unchanging loop plus 20 mechanisms layered on top.
+2. **What problem does each mechanism solve, and how is it implemented?** — Lesson-by-lesson distillation + mental models + code anchors (deep links to the exact source lines).
+3. **How do different agent frameworks make different trade-offs?** — A side-by-side comparison of **Claude Code** and the open-source **pi**.
+
+After reading, you should be able to explain from scratch: *why `Agent = Model + Harness`, and when building your own agent, which mechanism to adopt and how to choose.*
+
+> 📝 **Note:** the deep-dive notes under `notes/`, `compare/`, and `cheatsheets/` are currently written in Chinese. This English README gives you the full map and the key takeaways; per-page English translations may come later (PRs welcome).
+
+---
+
+## 🧭 How to read these notes
+
+```
+┌─────────────┐   build the model first   ┌──────────────────────┐
+│ 00 Mental   │ ────────────────────────► │  the never-changing   │
+│   Model     │                           │  loop + the "layer on"│
+└─────────────┘                           │  pattern              │
+                                          └──────────┬───────────┘
+                                                     │ then go chapter by chapter
+        ┌───────────────┬───────────────┬───────────┴───┬───────────────┐
+        ▼               ▼               ▼               ▼               ▼
+   01 Foundations   02 Context      03 Robustness   04 Multi-Agent   05 Capstone
+   (s01–s05)        (s06–s10)       (s11–s14)       (s15–s19)        (s20)
+        └───────────────┴───────────────┴───────┬───────┴───────────────┘
+                                                │ finally: compare / choose
+                                       ┌────────┴────────┐
+                                       ▼                 ▼
+                              Compare CC × pi    Decision table (use when building)
+```
+
+| File | Content | One-liner |
+|---|---|---|
+| [notes/00-mental-model.md](notes/00-mental-model.md) | Core mental model | `Agent = Model + Harness`, the unchanging loop |
+| [notes/01-foundations.md](notes/01-foundations.md) | s01–s05 foundations | Make the loop safe, extensible, planned |
+| [notes/02-context.md](notes/02-context.md) | s06–s10 context engineering | Let the agent run long and remember (the core chapter) |
+| [notes/03-robustness.md](notes/03-robustness.md) | s11–s14 robustness & orchestration | Survive, queue, don't block, run on schedule |
+| [notes/04-multi-agent.md](notes/04-multi-agent.md) | s15–s19 multi-agent | Communicate → agree → self-organize → isolate → extend |
+| [notes/05-capstone.md](notes/05-capstone.md) | s20 capstone | Many mechanisms, one loop |
+| [compare/claude-code-vs-pi.md](compare/claude-code-vs-pi.md) | Three-way comparison | One loop, two opposite harness philosophies |
+| [cheatsheets/decision-table.md](cheatsheets/decision-table.md) | Decision table | Which mechanism to add when building your own agent |
+
+---
+
+## 📐 One picture: the never-changing loop
+
+![Core loop: model decides → run tools → feed results back](images/diagrams/01-core-loop.svg)
+
+The `while stop_reason == "tool_use"` loop — about 30 lines — stays **literally unchanged** from s01 to s20. All complexity lives in the harness layer *around* the loop, not in the brain itself.
+
+![The evolution of 20 mechanisms across five chapters](images/diagrams/02-evolution.svg)
+
+---
+
+## 🗂️ Quick index of all 20 lessons
+
+> The lesson name jumps to the relevant notes; "src" deep-links to the key implementation line in the `learn-claude-code` repo.
+
+**Foundations → [notes/01](notes/01-foundations.md)**
+
+| # | Mechanism | One-line insight | src |
+|---|---|---|---|
+| s01 | Agent Loop | One loop + Bash is an agent | [code.py:85](https://github.com/shareAI-lab/learn-claude-code/blob/main/s01_agent_loop/code.py#L85) |
+| s02 | Tool dispatch | Add a tool = add a handler, loop untouched | [code.py:138](https://github.com/shareAI-lab/learn-claude-code/blob/main/s02_tool_use/code.py#L138) |
+| s03 | Permission pipeline | Trust the code, not the model | [code.py:185](https://github.com/shareAI-lab/learn-claude-code/blob/main/s03_permission/code.py#L185) |
+| s04 | Hooks | Hang on the loop, don't write into it | [code.py:160](https://github.com/shareAI-lab/learn-claude-code/blob/main/s04_hooks/code.py#L160) |
+| s05 | TodoWrite | An agent with no plan wanders | [code.py:144](https://github.com/shareAI-lab/learn-claude-code/blob/main/s05_todo_write/code.py#L144) |
+
+**Context engineering → [notes/02](notes/02-context.md)**
+
+| # | Mechanism | One-line insight | src |
+|---|---|---|---|
+| s06 | Subagent isolation | Split big tasks, each a clean context | [code.py:207](https://github.com/shareAI-lab/learn-claude-code/blob/main/s06_subagent/code.py#L207) |
+| s07 | On-demand skills | Load when needed, don't stuff the prompt | [code.py:69](https://github.com/shareAI-lab/learn-claude-code/blob/main/s07_skill_loading/code.py#L69) |
+| s08 | Context compaction | Cheap passes first, expensive ones last | [code.py:339](https://github.com/shareAI-lab/learn-claude-code/blob/main/s08_context_compact/code.py#L339) |
+| s09 | Memory | Compaction drops detail; keep one layer that doesn't | [code.py:132](https://github.com/shareAI-lab/learn-claude-code/blob/main/s09_memory/code.py#L132) |
+| s10 | Prompt assembly | The prompt is assembled, not hardcoded | [code.py:50](https://github.com/shareAI-lab/learn-claude-code/blob/main/s10_system_prompt/code.py#L50) |
+
+**Robustness & orchestration → [notes/03](notes/03-robustness.md)**
+
+| # | Mechanism | One-line insight | src |
+|---|---|---|---|
+| s11 | Error recovery | An error is a retry's starting point, not the end | [code.py:182](https://github.com/shareAI-lab/learn-claude-code/blob/main/s11_error_recovery/code.py#L182) |
+| s12 | Task graph (DAG) | Split into tasks, order them, persist them | [code.py:99](https://github.com/shareAI-lab/learn-claude-code/blob/main/s12_task_system/code.py#L99) |
+| s13 | Background tasks | Slow ops go to the background, the agent moves on | [code.py:344](https://github.com/shareAI-lab/learn-claude-code/blob/main/s13_background_tasks/code.py#L344) |
+| s14 | Cron scheduler | Produce work on a schedule; decouple schedule from run | [code.py:519](https://github.com/shareAI-lab/learn-claude-code/blob/main/s14_cron_scheduler/code.py#L519) |
+
+**Multi-agent → [notes/04](notes/04-multi-agent.md)**
+
+| # | Mechanism | One-line insight | src |
+|---|---|---|---|
+| s15 | Agent teams | One can't do it? Form a team | [code.py:595](https://github.com/shareAI-lab/learn-claude-code/blob/main/s15_agent_teams/code.py#L595) |
+| s16 | Team protocols | Teammates need a protocol | [code.py:389](https://github.com/shareAI-lab/learn-claude-code/blob/main/s16_team_protocols/code.py#L389) |
+| s17 | Autonomous agents | Watch the board, claim your own work | [code.py:292](https://github.com/shareAI-lab/learn-claude-code/blob/main/s17_autonomous_agents/code.py#L292) |
+| s18 | Worktree isolation | Each does its own, no conflicts | [code.py:189](https://github.com/shareAI-lab/learn-claude-code/blob/main/s18_worktree_isolation/code.py#L189) |
+| s19 | MCP plugin | External tools via a standard protocol | [code.py:754](https://github.com/shareAI-lab/learn-claude-code/blob/main/s19_mcp_plugin/code.py#L754) |
+
+**Capstone → [notes/05](notes/05-capstone.md)**
+
+| # | Mechanism | One-line insight | src |
+|---|---|---|---|
+| s20 | All mechanisms · one loop | Many mechanisms, one loop | [code.py:1955](https://github.com/shareAI-lab/learn-claude-code/blob/main/s20_comprehensive/code.py#L1955) |
+
+---
+
+## 🙏 Credits & License
+
+- This repo is a set of study notes for the open-source teaching project [`shareAI-lab/learn-claude-code`](https://github.com/shareAI-lab/learn-claude-code); all source-code copyright belongs to the original project. Reading it alongside the original source is strongly recommended.
+- The compared project [pi](https://github.com/earendil-works/pi) is open-sourced by earendil-works.
+- The notes (text and diagrams) are released under the [MIT License](LICENSE). Issues / PRs welcome.
+
+> If these notes helped you, a ⭐ is appreciated — and don't forget to star the [original project](https://github.com/shareAI-lab/learn-claude-code) too.

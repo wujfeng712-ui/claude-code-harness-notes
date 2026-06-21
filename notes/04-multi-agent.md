@@ -1,5 +1,8 @@
 # 04 · 多 Agent 协作（s15–s19）
 
+**[English](04-multi-agent.en.md)** · 中文
+
+
 > 从单 Agent 扩展到 Agent **群体**：通信 → 约定 → 自治 → 隔离 → 外联。
 
 ![多 Agent 协作：Lead 经 MessageBus 与队友通信，队友自治认领任务](../images/diagrams/05-teams.svg)

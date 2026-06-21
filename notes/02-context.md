@@ -1,5 +1,8 @@
 # 02 · 上下文工程（s06–s10）
 
+**[English](02-context.en.md)** · 中文
+
+
 > 全项目最核心的一篇——让 Agent **跑得久、记得住**。上下文是 agent 最稀缺的资源。
 
 ![上下文工程五层：隔离→按需→压缩→记忆→组装](../images/diagrams/03-context.svg)

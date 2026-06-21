@@ -37,7 +37,23 @@ python agent.py "Create hello.txt with a haiku about loops, then read it back"
 
 为了保持最小，它省略了后面 18 课的全部机制：没有权限审批、没有 hooks、没有 TodoWrite、没有上下文压缩、没有记忆、没有子 Agent/团队、没有 MCP。**这正是重点**——看清最小内核后，你就能理解后续每一课是在往这个循环上「挂」什么。
 
-想看这些机制怎么一层层加上去？→ [课程总览](../README.md) · [心智模型](../notes/00-mental-model.md)
+## 进阶示例：加上权限 + 钩子
+
+`agent_with_hooks.py`（~180 行）在**完全相同的循环**上叠加了 [s03 权限](../notes/lessons/s03.md) 和 [s04 钩子](../notes/lessons/s04.md)，正是为了演示「挂在循环上，不写进循环里」：
+
+```sh
+python agent_with_hooks.py "统计 README 行数并写进 count.txt"
+AUTO_APPROVE=1 python agent_with_hooks.py "..."   # 跳过写文件确认
+```
+
+它新增了：
+- `HOOKS` 注册表 + `trigger_pre/post`（s04 的 PreToolUse / PostToolUse 扩展点）
+- `permission_hook`：`DENY_LIST` 硬拒危险命令 + 写文件审批（s03 三道闸的精简版）
+- `log_hook`（调用前打印）、`big_output_hook`（大输出告警）
+
+对比 `agent.py` 你会发现：**循环主体几乎一字未改**，唯一变化是工具执行那一步从「直接调用」变成「先过 PreToolUse → 调用 → 再过 PostToolUse」。这就是整个项目反复强调的扩展方式。
+
+想看后面 16 个机制怎么继续往上叠？→ [课程总览](../README.md) · [心智模型](../notes/00-mental-model.md)
 
 ---
 

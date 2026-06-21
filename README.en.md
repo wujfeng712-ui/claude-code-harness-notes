@@ -39,11 +39,11 @@ After reading, you should be able to explain from scratch: *why `Agent = Model +
 | File | Content | One-liner |
 |---|---|---|
 | [notes/00-mental-model.en.md](notes/00-mental-model.en.md) | Core mental model | `Agent = Model + Harness`, the unchanging loop |
-| [notes/lessons/en/s01.md](notes/lessons/en/s01.md) | s01–s05 foundations | Make the loop safe, extensible, planned |
-| [notes/lessons/en/s06.md](notes/lessons/en/s06.md) | s06–s10 context engineering | Let the agent run long and remember (the core chapter) |
-| [notes/lessons/en/s11.md](notes/lessons/en/s11.md) | s11–s14 robustness & orchestration | Survive, queue, don't block, run on schedule |
-| [notes/lessons/en/s15.md](notes/lessons/en/s15.md) | s15–s19 multi-agent | Communicate → agree → self-organize → isolate → extend |
-| [notes/lessons/en/s20.md](notes/lessons/en/s20.md) | s20 capstone | Many mechanisms, one loop |
+| [notes/01-foundations.en.md](notes/01-foundations.en.md) | s01–s05 foundations | Make the loop safe, extensible, planned |
+| [notes/02-context.en.md](notes/02-context.en.md) | s06–s10 context engineering | Let the agent run long and remember (the core chapter) |
+| [notes/03-robustness.en.md](notes/03-robustness.en.md) | s11–s14 robustness & orchestration | Survive, queue, don't block, run on schedule |
+| [notes/04-multi-agent.en.md](notes/04-multi-agent.en.md) | s15–s19 multi-agent | Communicate → agree → self-organize → isolate → extend |
+| [notes/05-capstone.en.md](notes/05-capstone.en.md) | s20 capstone | Many mechanisms, one loop |
 | [compare/claude-code-vs-pi.en.md](compare/claude-code-vs-pi.en.md) | Three-way comparison | One loop, two opposite harness philosophies |
 | [cheatsheets/decision-table.en.md](cheatsheets/decision-table.en.md) | Decision table | Which mechanism to add when building your own agent |
 | [notes/lessons/en/](notes/lessons/en/) | **20 per-lesson pages** | One page per lesson, easy to browse/bookmark |
@@ -65,7 +65,7 @@ The `while stop_reason == "tool_use"` loop — about 30 lines — stays **litera
 
 > The lesson name jumps to the relevant notes; "src" deep-links to the key implementation line in the `learn-claude-code` repo.
 
-**Foundations → [notes/lessons/en/s01.md](notes/lessons/en/s01.md)**
+**Foundations → [notes/01-foundations.en.md](notes/01-foundations.en.md)**
 
 | # | Mechanism | One-line insight | src |
 |---|---|---|---|
@@ -75,7 +75,7 @@ The `while stop_reason == "tool_use"` loop — about 30 lines — stays **litera
 | [s04](notes/lessons/en/s04.md) | Hooks | Hang on the loop, don't write into it | [code.py:160](https://github.com/shareAI-lab/learn-claude-code/blob/main/s04_hooks/code.py#L160) |
 | [s05](notes/lessons/en/s05.md) | TodoWrite | An agent with no plan wanders | [code.py:144](https://github.com/shareAI-lab/learn-claude-code/blob/main/s05_todo_write/code.py#L144) |
 
-**Context engineering → [notes/lessons/en/s06.md](notes/lessons/en/s06.md)**
+**Context engineering → [notes/02-context.en.md](notes/02-context.en.md)**
 
 | # | Mechanism | One-line insight | src |
 |---|---|---|---|
@@ -85,7 +85,7 @@ The `while stop_reason == "tool_use"` loop — about 30 lines — stays **litera
 | [s09](notes/lessons/en/s09.md) | Memory | Compaction drops detail; keep one layer that doesn't | [code.py:132](https://github.com/shareAI-lab/learn-claude-code/blob/main/s09_memory/code.py#L132) |
 | [s10](notes/lessons/en/s10.md) | Prompt assembly | The prompt is assembled, not hardcoded | [code.py:50](https://github.com/shareAI-lab/learn-claude-code/blob/main/s10_system_prompt/code.py#L50) |
 
-**Robustness & orchestration → [notes/lessons/en/s11.md](notes/lessons/en/s11.md)**
+**Robustness & orchestration → [notes/03-robustness.en.md](notes/03-robustness.en.md)**
 
 | # | Mechanism | One-line insight | src |
 |---|---|---|---|
@@ -94,7 +94,7 @@ The `while stop_reason == "tool_use"` loop — about 30 lines — stays **litera
 | [s13](notes/lessons/en/s13.md) | Background tasks | Slow ops go to the background, the agent moves on | [code.py:344](https://github.com/shareAI-lab/learn-claude-code/blob/main/s13_background_tasks/code.py#L344) |
 | [s14](notes/lessons/en/s14.md) | Cron scheduler | Produce work on a schedule; decouple schedule from run | [code.py:519](https://github.com/shareAI-lab/learn-claude-code/blob/main/s14_cron_scheduler/code.py#L519) |
 
-**Multi-agent → [notes/lessons/en/s15.md](notes/lessons/en/s15.md)**
+**Multi-agent → [notes/04-multi-agent.en.md](notes/04-multi-agent.en.md)**
 
 | # | Mechanism | One-line insight | src |
 |---|---|---|---|
@@ -104,7 +104,7 @@ The `while stop_reason == "tool_use"` loop — about 30 lines — stays **litera
 | [s18](notes/lessons/en/s18.md) | Worktree isolation | Each does its own, no conflicts | [code.py:189](https://github.com/shareAI-lab/learn-claude-code/blob/main/s18_worktree_isolation/code.py#L189) |
 | [s19](notes/lessons/en/s19.md) | MCP plugin | External tools via a standard protocol | [code.py:754](https://github.com/shareAI-lab/learn-claude-code/blob/main/s19_mcp_plugin/code.py#L754) |
 
-**Capstone → [notes/lessons/en/s20.md](notes/lessons/en/s20.md)**
+**Capstone → [notes/05-capstone.en.md](notes/05-capstone.en.md)**
 
 | # | Mechanism | One-line insight | src |
 |---|---|---|---|
